@@ -106,7 +106,12 @@ for Artist type "U FFFFFFFF0701ff00" then enter then Y to say yes, then enter.
 for CFP type "U FFFFFFFF0800ff00" then enter then Y to say yes, then enter.  
 for Uber type "U FFFFFFFF0901ff00" then enter then Y to say yes, then enter.  
 
-So if you can do this several times and other badges are near then they will get updated to 100%.   
+So if you can do this several times and other badges are near then they will get updated to 100%.  you can do this manually one by one and it will work.
 
-What I did to make this faster was another VBS script loaded into SecureCRT and then send it over the serial console.   
-The timing that worked for me was 500ms between each command.   
+Get everyone to 100%:
+----------------------------------- 
+What I did to make this faster was another VBS script loaded into [SecureCRT](https://www.vandyke.com/products/securecrt/) and then send it over the serial console.  
+
+The timing that worked for me was 500ms between each command. you can find my script here. 
+
+NOTE: Some times when too many badges are nearby the communication controller doesnt let you change the packet so you can restart your badge and tart again. Also, you can have as many badges nearby as you want but the more you have the slower it gets. 
