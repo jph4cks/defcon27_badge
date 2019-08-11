@@ -27,7 +27,7 @@ https://1bitsquared.com/collections/embedded-hardware/products/black-magic-probe
 
 Very simple to connect and use, even in windows10. xD   
 You can get up to speed by checking this link:  
-https://github.com/blacksphere/blackmagic/wiki/Getting-Started  
+https://github.com/blacksphere/blackmagic/wiki/Getting-Started   
 
 JTAG Cable.
 http://www.tag-connect.com/TC2050-IDC-NL-050-ALL -> JTAG Cable since the one that comes with blackmagic wont work (too big)  
