@@ -19,6 +19,8 @@ So, how do we hack it in the first place?
 
 This is not the only way to do it but, first, you need to get your hands on some hardware.   
 
+Hardware you might need:
+-----------------------------------  
 I got this board which I think it's awesome!   
 Black Magic Probe V2.1  
 https://1bitsquared.com/collections/embedded-hardware/products/black-magic-probe   
@@ -27,12 +29,19 @@ Very simple to connect and use, even in windows10. xD
 You can get up to speed by checking this link:  
 https://github.com/blacksphere/blackmagic/wiki/Getting-Started  
 
+JTAG Cable.
+http://www.tag-connect.com/TC2050-IDC-NL-050-ALL -> JTAG Cable since the one that comes with blackmagic wont work (too big)  
+https://i.redd.it/twggkji0haf31.jpg -> Here pinout to know how to connect  
+
+Source code:
+----------------------------------- 
 Here is the firmware of the DEFCON27 Badge on the Defcon Media server.   
 https://media.defcon.org/DEF%20CON%2027/DEF%20CON%2027%20badge.rar  
 
 Interesting files to look at:   
 1.- The actual slides with Joe Grand presentation:    
  https://media.defcon.org/DEF%20CON%2027/DEF%20CON%2027%20badge/DEFCON-27-Joe-Grand-Badge.pdf  
+ http://www.grandideastudio.com/defcon-27-badge/  
 
 2.- The actual source code used to program the badges:  
 https://media.defcon.org/DEF%20CON%2027/DEF%20CON%2027%20badge/Firmware/source/dc27_badge.c  
@@ -42,14 +51,14 @@ https://media.defcon.org/DEF%20CON%2027/DEF%20CON%2027%20badge/Firmware/Debug/dc
 
 You can easily identify that there is a variable called Badge State, and if you look into the memory map the address is 0x1ffffcdc.  
 
+Hacking the micro:
+----------------------------------- 
 to do this, first get your blackmagic hardware, then install this software.   
 https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm  
 
 Then use the installed GDB (Debugger), you should find it at. "C:\Program Files (x86)\GNU Tools ARM Embedded\8 2019-q3-update\bin\" or something similar.   
 
-Then connect your badge using JTAG Cable.  
-http://www.tag-connect.com/TC2050-IDC-NL-050-ALL -> JTAG Cable since the one that comes with blackmagic wont work (too big)  
-https://i.redd.it/twggkji0haf31.jpg -> Here pinout to know how to connect  
+Then connect your badge using JTAG Cable. 
 
 Then from the command line execute:  
 arm-none-eabi-gdb.exe  
@@ -57,27 +66,34 @@ then type:
 "target  extended-remote COM6" where COM6 is the Serial interface detected once you connect your blackmagic.  
 Remote debugging using COM6  
 then type: "monitor swdp_scan" and you will see something like:  
------------------------------------------------------  
+
 Target voltage: 1.8V  
 Available Targets:  
 No. Att Driver  
  1      ARM Cortex-M  
  2      Kinetis Recovery (MDM-AP)  
------------------------------------------------------   
+
 Then just type: "attach 1" where 1 is the ARM Cortex-M device.   
 
 Once connected using JTAG, you will see:  
------------------------------------------------------  
+
 Attaching to Remote target  
 (gdb)  
-------------------------------------------------------  
+
 Here you just need to modify that memory space we discovered before by typing:  
 "set {char}0x1ffffcdc = 7"  
 and then "c" to let the proccesor continue working.   
 
 After that you can disconnect your JTAG cable and the Badge is already 100%   
 
-So, to simulate other badges you just have to cicle trought the following commands that will update the badges types.   
+Now if you connect over the Serial console (UART) you will be able to use 3 new functions: 
+A (ASCII Generator)
+S (Sound Generator)
+U (Update Transmited Packets)
+
+Simulated other badges:
+----------------------------------- 
+To simulate other badges you just have to cicle throught the following commands that will update the badges types.   
 
 for Human type "U FFFFFFFF0001ff00" then enter then Y to say yes, then enter.   
 for Goon type "U FFFFFFFF0101ff00" then enter then Y to say yes, then enter.   
