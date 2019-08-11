@@ -3,7 +3,7 @@ How I hacked mine..
 
 Why?   
 -----------------------------------  
-Defcon is about making friends. I was very excited about hacking a badge to get a black badge, but in the process of trying to hack it, you figure out that you are not meant to do it on your own. The idea is to learn something new and make new friends. So I made some friends in the hacking village hacking who showed me everything I needed to do it on my own. I learned how to get all the hardware and software ready to be able to connect to my badge and do some cool stuff.   
+Defcon is about making friends. I was very excited about hacking a badge to get a black badge, but in the process of trying to hack it, you figure out that you are not meant to do it on your own. The idea is to learn something new and make new friends. So I made some friends in the hardware village hacking who showed me everything I needed to do it on my own. I learned how to get all the hardware and software ready to be able to connect to my badge and do some cool stuff.   
 
 When I finished hacking my badge, I found out there was no more price than making friends, so I decided to help everyone else get their badge to 100%. I dedicated probably 90% of my Defcon time to just hack my badge and make more friends by helping them hack theirs.    
 
