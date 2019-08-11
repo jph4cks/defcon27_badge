@@ -1,4 +1,4 @@
-﻿#$language = "VBScript"
+#$language = "VBScript"
 #$interface = "1.0"
 
 crt.Screen.Synchronous = True
