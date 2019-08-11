@@ -112,6 +112,6 @@ Get everyone to 100%:
 ----------------------------------- 
 What I did to make this faster was another VBS script loaded into [SecureCRT](https://www.vandyke.com/products/securecrt/) and then send it over the serial console.  
 
-The timing that worked for me was 500ms between each command. you can find my script here. 
+The timing that worked for me was 500ms between each command. you can find my script [here](https://github.com/japd06/defcon27_badge/blob/master/CompleateALL.vbs).  
 
 NOTE: Some times when too many badges are nearby the communication controller doesnt let you change the packet so you can restart your badge and tart again. Also, you can have as many badges nearby as you want but the more you have the slower it gets. 
